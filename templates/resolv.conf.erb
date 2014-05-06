@@ -1,0 +1,6 @@
+# /etc/resolv.conf - dns configuration file - controlled by puppet
+<% if @domain %>domain <%= domain %><% end %>
+<% @nameservers.each do |nameserver| -%>
+nameserver <%= nameserver %>
+<% end -%>
+<% if @searchdomains %>search<% @searchdomains.each do |sdomain| -%> <%= sdomain %><% end -%><% end %>
